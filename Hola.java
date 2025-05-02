@@ -134,3 +134,87 @@ class Asesino extends PersonajeFisico implements Movilizable, Curable {
         System.out.println(nombre + " utiliza un ungüento para curarse.");
     }
 }
+
+class Guerrero extends PersonajeFisico implements Defendible {
+    private int fuerza, armadura, escudo;
+
+    public Guerrero(String nombre, int nivel, int salud, int fuerza, int armadura, int escudo) {
+        super(nombre, nivel, salud);
+        this.fuerza = fuerza;
+        this.armadura = armadura;
+        this.escudo = escudo;
+    }
+
+    public void cargarAtaque() {
+        System.out.println(nombre + " carga un poderoso ataque");
+    }
+
+    @Override
+    public void atacar() {
+        cargarAtaque();
+    }
+
+    @Override
+    public void defender() {
+        System.out.println(nombre + " se defiende con su escudo.");
+    }
+}
+
+class Mago extends PersonajeMagico implements Magico, Curable {
+    private int mana, sabiduria;
+
+    public Mago(String nombre, int nivel, int salud, int mana, int sabiduria) {
+        super(nombre, nivel, salud);
+        this.mana = mana;
+        this.sabiduria = sabiduria;
+    }
+
+    public void regenerarMana() {
+        System.out.println(nombre + " regenera su maná.");
+    }
+
+    @Override
+    public void atacar() {
+        lanzarHechizo();
+    }
+
+    @Override
+    public void lanzarHechizo() {
+        System.out.println(nombre + " lanza un hechizo con fuego abrasador.");
+    }
+
+    @Override
+    public void curar() {
+        System.out.println(nombre + " lanza un hechizo de curación.");
+    }
+}
+
+class Arquero extends PersonajeFisico implements Volador {
+    private int agilidad, numFlechas;
+
+    public Arquero(String nombre, int nivel, int salud, int agilidad, int numFlechas) {
+        super(nombre, nivel, salud);
+        this.agilidad = agilidad;
+        this.numFlechas = numFlechas;
+    }
+
+    public void dispararFlecha() {
+        System.out.println(nombre + " dispara una flecha");
+    }
+
+    public void reabastecerFlechas() {
+        System.out.println(nombre + " recarga su carcaj.");
+    }
+
+    @Override
+    public void atacar() {
+        dispararFlecha();
+    }
+
+    @Override
+    public void volar() {
+        System.out.println(nombre + " puede volar.");
+    }
+}
+
+
