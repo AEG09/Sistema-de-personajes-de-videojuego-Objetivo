@@ -51,3 +51,25 @@ abstract class Personaje {
         return nombre.hashCode();
     }
 }
+
+// Subclase abstracta - Combate físico
+abstract class PersonajeFisico extends Personaje {
+    public PersonajeFisico(String nombre, int nivel, int salud) {
+        super(nombre, nivel, salud);
+    }
+
+    public void entrenar() {
+        System.out.println(nombre + " entrena para mejorar su fuerza.");
+    }
+}
+
+// Subclase abstracta - Mágico
+abstract class PersonajeMagico extends Personaje {
+    public PersonajeMagico(String nombre, int nivel, int salud) {
+        super(nombre, nivel, salud);
+    }
+
+    public void meditar() {
+        System.out.println(nombre + " medita para aumentar su poder mágico.");
+    }
+}
