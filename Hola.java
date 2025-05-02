@@ -59,7 +59,7 @@ abstract class PersonajeFisico extends Personaje {
     }
 
     public void entrenar() {
-        System.out.println(nombre + " entrena para mejorar su fuerza.");
+        System.out.println(nombre + " entrena para aumentar su fuerza.");
     }
 }
 
@@ -70,7 +70,7 @@ abstract class PersonajeMagico extends Personaje {
     }
 
     public void meditar() {
-        System.out.println(nombre + " medita para aumentar su poder mágico.");
+        System.out.println(nombre + " medita para aumentar su poder");
     }
 }
 class Guerrero extends PersonajeFisico implements Defendible {
@@ -84,7 +84,7 @@ class Guerrero extends PersonajeFisico implements Defendible {
     }
 
     public void cargarAtaque() {
-        System.out.println(nombre + " carga un poderoso ataque físico.");
+        System.out.println(nombre + " carga un poderoso ataque ");
     }
 
     @Override
@@ -94,7 +94,7 @@ class Guerrero extends PersonajeFisico implements Defendible {
 
     @Override
     public void defender() {
-        System.out.println(nombre + " se defiende con su escudo.");
+        System.out.println(nombre + " se defiende con el escudo.");
     }
 }
 
@@ -118,12 +118,12 @@ class Mago extends PersonajeMagico implements Magico, Curable {
 
     @Override
     public void lanzarHechizo() {
-        System.out.println(nombre + " lanza un hechizo de fuego.");
+        System.out.println(nombre + " lanza un hechizo con fuego abrasador");
     }
 
     @Override
     public void curar() {
-        System.out.println(nombre + " lanza un hechizo de curación.");
+        System.out.println(nombre + " lanza un hechizo para curarse.");
     }
 }
 
@@ -137,11 +137,11 @@ class Arquero extends PersonajeFisico implements Volador {
     }
 
     public void dispararFlecha() {
-        System.out.println(nombre + " dispara una flecha con agilidad.");
+        System.out.println(nombre + " dispara una flecha");
     }
 
     public void reabastecerFlechas() {
-        System.out.println(nombre + " reabastece sus flechas.");
+        System.out.println(nombre + " recarga su carcaj");
     }
 
     @Override
@@ -151,68 +151,7 @@ class Arquero extends PersonajeFisico implements Volador {
 
     @Override
     public void volar() {
-        System.out.println(nombre + " usa un artefacto para volar.");
+        System.out.println(nombre + " es capaz de volar");
     }
 }
 
-class Hechicero extends PersonajeMagico implements Magico, Defendible {
-    private int mana, concentracion;
-
-    public Hechicero(String nombre, int nivel, int salud, int mana, int concentracion) {
-        super(nombre, nivel, salud);
-        this.mana = mana;
-        this.concentracion = concentracion;
-    }
-
-    public void invocarEntidad() {
-        System.out.println(nombre + " invoca una entidad mágica.");
-    }
-
-    @Override
-    public void atacar() {
-        invocarEntidad();
-    }
-
-    @Override
-    public void lanzarHechizo() {
-        System.out.println(nombre + " lanza un hechizo ancestral.");
-    }
-
-    @Override
-    public void defender() {
-        System.out.println(nombre + " genera un escudo mágico para defenderse.");
-    }
-}
-
-class Asesino extends PersonajeFisico implements Movilizable, Curable {
-    private int sigilo, critico;
-
-    public Asesino(String nombre, int nivel, int salud, int sigilo, int critico) {
-        super(nombre, nivel, salud);
-        this.sigilo = sigilo;
-        this.critico = critico;
-    }
-
-    public void atacarPorLaEspalda() {
-        System.out.println(nombre + " ataca por la espalda con sigilo.");
-    }
-
-    public void ocultar() {
-        System.out.println(nombre + " se oculta en las sombras.");
-    }
-
-    @Override
-    public void atacar() {
-        atacarPorLaEspalda();
-    }
-
-    @Override
-    public void moverse() {
-        System.out.println(nombre + " se mueve sigilosamente.");
-    }
-
-    @Override
-    public void curar() {
-        System.out.println(nombre + " utiliza un ungüento para curarse.");
-    }
-}
