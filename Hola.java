@@ -1,4 +1,6 @@
-package kaishdliad; // Add this line to declare the package
+package kaishdliad; 
+import java.util.ArrayList;
+
 interface Curable {
     void curar();
 }
@@ -214,6 +216,41 @@ class Arquero extends PersonajeFisico implements Volador {
     @Override
     public void volar() {
         System.out.println(nombre + " puede volar.");
+    }
+}
+
+class Juego {
+    private ArrayList<Personaje> personajes = new ArrayList<>();
+
+    public void agregarPersonaje(Personaje p) {
+        personajes.add(p);
+    }
+
+    public void mostrarAcciones() {
+        for (Personaje p : personajes) {
+            System.out.println(p);
+            p.atacar();
+            if (p instanceof Curable) ((Curable) p).curar();
+            if (p instanceof Volador) ((Volador) p).volar();
+            if (p instanceof Magico) ((Magico) p).lanzarHechizo();
+            if (p instanceof Defendible) ((Defendible) p).defender();
+            if (p instanceof Movilizable) ((Movilizable) p).moverse();
+            System.out.println();
+        }
+    }
+}
+
+public class Hola { 
+    public static void main(String[] args) {
+        Juego juego = new Juego();
+
+        juego.agregarPersonaje(new Guerrero("Tung Tung Tung Tung Tung Sahur", 69, 20, 90, 70, 50));
+        juego.agregarPersonaje(new Mago("Brim Brim Patapim", 12, 100, 120, 95));
+        juego.agregarPersonaje(new Arquero("Bombardiro Crocodilo", 9, 110, 50, 30));
+        juego.agregarPersonaje(new Hechicero("Lirili Larila", 11, 22, 100, 90));
+        juego.agregarPersonaje(new Asesino("Capuchino Assasino", 60, 20, 99, 80));
+
+        juego.mostrarAcciones(); 
     }
 }
 
